@@ -1,0 +1,60 @@
+[
+    {
+        "id": 1,
+        "user_name": "Pepsico",
+        "acc_no":11 ,
+        "amount":123,
+        "pen_amount": 22
+      },
+    {
+        "id": 2,
+        "user_name": "Nestle",
+        "acc_no":11 ,
+        "amount":123,
+        "pen_amount": 22
+      },
+    {
+        "id": 2,
+        "user_name": "Nestle",
+        "acc_no":11 ,
+        "amount":123,
+        "pen_amount": 22
+      },
+    {
+        "id": 2,
+        "user_name": "Nestle",
+        "acc_no":11 ,
+        "amount":123,
+        "pen_amount": 22
+      },
+    {
+        "id": 3,
+        "user_name": "Coca-cola",
+        "acc_no":13 ,
+        "amount":123,
+        "pen_amount": 22
+      },
+    {
+        "id": 4,
+        "user_name": "Mountain_dew",
+        "acc_no":14 ,
+        "amount":123,
+        "pen_amount": 22
+      },
+    {
+        "id": 5,
+        "user_name": "Pepsi",
+        "acc_no":11 ,
+        "amount":123,
+        "pen_amount": 22
+      },
+    {
+        "id": 6,
+        "user_name": "Starbucks",
+    
+        "acc_no":16 ,
+        "amount":123,
+        "pen_amount": 22
+      }
+      
+]

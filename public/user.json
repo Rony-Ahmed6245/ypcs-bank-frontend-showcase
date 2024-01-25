@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "user_name": "Pepsico",
+        "img": "https://i.ibb.co/qJQLX1v/pngegg-2.png",
+        "acc_no":11 
+      },
+    {
+        "id": 2,
+        "user_name": "Nestle",
+        "img": "https://i.ibb.co/jGkD2q1/pngegg-1.png",
+        "acc_no":12 
+      },
+    {
+        "id": 3,
+        "user_name": "Coca-cola",
+        "img": "https://i.ibb.co/KqCzXTw/pngegg.png",
+        "acc_no":13 
+      },
+    {
+        "id": 4,
+        "user_name": "Mountain_dew",
+        "img": "https://i.ibb.co/qggf9Vs/pngegg-4.png",
+        "acc_no":14 
+      },
+    {
+        "id": 5,
+        "user_name": "Pepsi",
+        "img": "https://i.ibb.co/tzZrxwD/pngegg-5.png",
+        "acc_no":15 
+      },
+    {
+        "id": 6,
+        "user_name": "Starbucks",
+        "img": "https://i.ibb.co/Ltrmdk5/pngegg-6.png",
+        "acc_no":16 
+      },
+    {
+        "id": 7,
+        "user_name": "Starbucks",
+        "img": "https://i.ibb.co/Ltrmdk5/pngegg-6.png",
+        "acc_no":10101010 
+      }
+      
+]
