@@ -23,7 +23,7 @@ const Account = () => {
 
     return (
         <div className="max-w-7xl mx-auto p-4 my-5">
-            <marquee className="text-gray-300 font-bold py-2 " direction="">Do not return 'Penalty Amount'..!</marquee>
+           
             <div className="md:flex justify-start items-start gap-4">
                 <div className="md:w-4/12    flex-col rounded gap-4 mb-5 md:mb-0 md:flex justify-center  ">
                     <p className="text-md bg-gradient-to-r from-[#711DB0] uppercase to-[#ED0B5A]  text-gray-200  font-bold  p-5 shadow  rounded">Account Number: {acc_no}</p>
