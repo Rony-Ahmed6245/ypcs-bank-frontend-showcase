@@ -1,11 +1,12 @@
 
 import img from '../assets/Untitled design.png'
 import { FaGithub } from "react-icons/fa";
-import { FaFacebook, FaSquarePhone } from 'react-icons/fa6';
+import {  FaSquarePhone } from 'react-icons/fa6';
 import { HiMiniGlobeAlt } from "react-icons/hi2";
 
 import img1 from "../assets/411089612_1016361566134727_6716276073552644705_n.jpg"
 import img2 from "../assets/184979780_958930997986797_2530290806202001357_n.jpg"
+import img3 from "../assets/torikul.jpg"
 
 
 const Dev = () => {
@@ -38,7 +39,7 @@ const Dev = () => {
                 <div className=" border1 rounded-md ">
                     <div className=" ">
                         <div className="flex justify-center items-center gap-4 pt-6 ">
-                            <img className="w-[100px] md:w-[200px] rounded-full" src={img2} alt="" />
+                            <img className="w-[100px] md:w-[200px] rounded-full" src={img3} alt="" />
                         </div>
                         <div className="space-y-1 p-3">
                             <h1 className="text-center text-2xl font-bold text-gray-300">তরিকুল ইসলাম তুহিন</h1>
@@ -48,7 +49,7 @@ const Dev = () => {
                         <div className="flex justify-center items-center gap-4 pb-5">
 
 
-                            <a href="tel:+8801770159872" ><FaSquarePhone className=" text-2xl text-[#ED0B5A] rounded-full" /></a>
+                            <a href="tel:+8801709132479" ><FaSquarePhone className=" text-2xl text-[#ED0B5A] rounded-full" /></a>
 
                         </div>
                     </div>

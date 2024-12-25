@@ -7,6 +7,7 @@ const PayHistryTable = ({ index, item, handleDelete }) => {
 
     return (
         <tr className=" shadow text-gray-200 border">
+            
             <td className="shadow text-gray-200 border text-center">{index}</td>
             <td className="shadow text-gray-200 border text-center ">{item.acc_no}</td>
             <td className="shadow text-gray-200 border text-center">{item.amount}.00 TK</td>

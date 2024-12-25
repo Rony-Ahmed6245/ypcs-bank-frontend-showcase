@@ -59,11 +59,11 @@ const ManageAcc = () => {
                 {/* head */}
                 <thead>
                     <tr className="bg-gradient-to-r from-[#711DB0] to-[#ED0B5A]">
-                        <th className="text-white text-center shadow border uppercase">Serial NO</th>
-                        <th className="text-white text-center shadow border uppercase">Images</th>
-                        <th className="text-white text-center shadow border uppercase">Account Holder Name</th>
-                        <th className="text-white text-center shadow border uppercase">Account Number</th>
-                        <th className="text-white text-center shadow border uppercase">Delete</th>
+                        <th className="text-white text-center shadow border uppercase">নং</th>
+                        <th className="text-white text-center shadow border uppercase">ছবি</th>
+                        <th className="text-white text-center shadow border uppercase">সদস্যের নাম</th>
+                        <th className="text-white text-center shadow border uppercase">একাউন্ট নম্বর</th>
+                        <th className="text-white text-center shadow border uppercase">ডিলিট</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -20,12 +20,12 @@ const UserCard = ({ user }) => {
                     <figure className="mx-auto mb-4 border flex -mt-10 h-20 w-20 items-center justify-center rounded-full ">
                         <img className="mx-auto mt-4 mb-4 flex h-16 w-16 items-center justify-center rounded-full " src={img} alt="" />
                     </figure>
-                    <h2 className=" text-xl text-gray-400 font-bold uppercase">Name: {user_name}</h2>
-                    <h2 className="font-bold text-sm text-gray-500 mb-6">Account No: {acc_no}</h2>
+                    <h2 className=" text-xl text-gray-400 font-bold uppercase">নাম: {user_name}</h2>
+                    <h2 className="font-bold text-sm text-gray-500 mb-6">একাউন্ট নম্বর: {acc_no}</h2>
 
                     <div className="flex items-center justify-center">
                      
-                        <Link to={`/user/${acc_no}`} className="w-full rounded-b-md bg-[#711DB0] px-4 py-2 mt-4 hover:bg-gray-400 text-white font-medium "><div className="flex justify-center items-center"><TbCurrencyTaka className="text-xl" />Account History</div></Link>
+                        <Link to={`/user/${acc_no}`} className="w-full rounded-b-md bg-[#711DB0] px-4 py-2 mt-4 hover:bg-gray-400 text-white font-medium "><div className="flex justify-center items-center"><TbCurrencyTaka className="text-xl" />আপনার একাউন্ট হিস্টোরি দেখুন</div></Link>
                     </div>
                 </div>
             </div>

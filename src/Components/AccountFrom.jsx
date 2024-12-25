@@ -58,25 +58,25 @@ const AccountForm = () => {
         <div>
             <div className="flex  justify-center items-center px-4 my-10 ">
                 <div className=" shadow form-container bg-gradient-to-r from-[#711DB0] to-[#ED0B5A]  rounded-md p-4">
-                    <h1 className="card__title uppercase text-center">Create Account</h1>
+                    <h1 className="card__title uppercase text-center">নতুন একাউন্ট করুন</h1>
 
                     <form onSubmit={handleUserData} className="form  space-y-3">
                         <div className="input-group">
-                            <label >Account Holder name</label>
-                            <input type="text" name="userName" required placeholder="MR. XYZ " />
+                            <label >নাম দিন (বাংলায়) </label>
+                            <input type="text" name="userName" required placeholder="  " />
                         </div>
                         <div className="input-group">
-                            <label >Account Number</label>
-                            <input name="acc_no" pattern="[0-9]{8,}" required placeholder="00 00 00 00" type="text" />
+                            <label >একাউন্ট নম্বর দিন (বাংলায়) </label>
+                            <input name="acc_no"  required placeholder="০০ ০০" type="text" />
                         </div>
                         <div className="input-group">
-                            <label >Account Holder Image[Max 1MB]</label>
+                            <label >ছবি দিন</label>
                             <input name="img" required type="file" />
                         </div>
 
                      
                         <button type="submit" className="w-full border py-2 rounded bg-[#711DB0] hover:bg-[#ED0B5A] mt-4">
-                            Create
+                            খুলুন
                         </button>
                     </form>
 
