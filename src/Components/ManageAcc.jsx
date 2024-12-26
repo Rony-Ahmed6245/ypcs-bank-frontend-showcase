@@ -62,7 +62,7 @@ const ManageAcc = () => {
                         <th className="text-white text-center shadow border uppercase">নং</th>
                         <th className="text-white text-center shadow border uppercase">ছবি</th>
                         <th className="text-white text-center shadow border uppercase">সদস্যের নাম</th>
-                        <th className="text-white text-center shadow border uppercase">একাউন্ট নম্বর</th>
+                        <th className="text-white text-center shadow border uppercase">একাউন্ট/ফোন নম্বর</th>
                         <th className="text-white text-center shadow border uppercase">ডিলিট</th>
                     </tr>
                 </thead>

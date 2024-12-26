@@ -2,28 +2,69 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 const AccountForm = () => {
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState("");
+
+    // Function to validate Bangla input
+    const validateBangla = (text) => {
+        const banglaRegex = /^[\u0980-\u09FF\s]+$/; // Bangla characters and spaces
+        return banglaRegex.test(text);
+    };
+
+    // Function to validate English input (11 digits for acc_no)
+    const validateAccountNumber = (text) => {
+        const accountRegex = /^[0-9]{11}$/; // Exactly 11 digits
+        return accountRegex.test(text);
+    };
 
     const handleUserData = async (e) => {
         e.preventDefault();
 
-        const user_name = e.target.userName.value;
-        const acc_no = e.target.acc_no.value;
+        const user_name = e.target.userName.value.trim();
+        const acc_no = e.target.acc_no.value.trim();
         const image = e.target.img.files[0]; // Use files[0] to get the selected file
+
+        // Validation
+        if (!user_name) {
+            Swal.fire("নাম অবশ্যই প্রদান করতে হবে।");
+            return;
+        }
+
+        if (!validateBangla(user_name)) {
+            Swal.fire("নাম শুধুমাত্র বাংলায় লিখুন।");
+            return;
+        }
+
+        if (!acc_no) {
+            Swal.fire("একাউন্ট নম্বর অবশ্যই প্রদান করতে হবে।");
+            return;
+        }
+
+        if (!validateAccountNumber(acc_no)) {
+            Swal.fire("একাউন্ট নম্বর অবশ্যই ১১ সংখ্যার হতে হবে এবং ইংরেজিতে লিখুন।");
+            return;
+        }
+
+        if (!image) {
+            Swal.fire("একটি ছবি নির্বাচন করুন।");
+            return;
+        }
 
         // Create FormData object to append the image
         const formData = new FormData();
-        formData.append('image', image);
+        formData.append("image", image);
 
         try {
             // Upload image to ImgBB
-            const imgbbResponse = await fetch('https://api.imgbb.com/1/upload?key=fdcd6ed14a8ccf736515825c22b2b1d1', {
-                method: "POST",
-                body: formData,
-            });
+            const imgbbResponse = await fetch(
+                "https://api.imgbb.com/1/upload?key=fdcd6ed14a8ccf736515825c22b2b1d1",
+                {
+                    method: "POST",
+                    body: formData,
+                }
+            );
 
             if (!imgbbResponse.ok) {
-                throw new Error('Error uploading image to ImgBB');
+                throw new Error("Error uploading image to ImgBB");
             }
 
             const imgbbData = await imgbbResponse.json();
@@ -31,56 +72,72 @@ const AccountForm = () => {
 
             // Save user data to your server along with the ImgBB image URL
             const userFormData = { user_name, acc_no, img: imgUrl };
-            const response = await fetch('https://bank-server-theta.vercel.app/v1/userBankAccount', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userFormData),
-            });
+            const response = await fetch(
+                "https://bank-server-theta.vercel.app/v1/userBankAccount",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(userFormData),
+                }
+            );
 
             if (response.ok) {
-                Swal.fire("New Bank Account Created Successfully!");
-                // Optionally, you can reset the form or navigate to another page
+                Swal.fire("নতুন একাউন্ট সফলভাবে তৈরি হয়েছে!");
+                setErrorMessage(""); // Clear any error messages
+                e.target.reset(); // Reset the form
             } else {
                 const errorData = await response.json();
-                setErrorMessage(errorData.message || 'Error creating account');
+                setErrorMessage(errorData.message || "একাউন্ট তৈরি করতে সমস্যা হয়েছে।");
             }
         } catch (error) {
-            console.error('Error creating account:', error);
-            setErrorMessage('Something went wrong. Please try again.');
+            console.error("Error creating account:", error);
+            setErrorMessage("কিছু সমস্যা হয়েছে। আবার চেষ্টা করুন।");
         }
-
-        e.target.reset();
     };
 
     return (
         <div>
-            <div className="flex  justify-center items-center px-4 my-10 ">
-                <div className=" shadow form-container bg-gradient-to-r from-[#711DB0] to-[#ED0B5A]  rounded-md p-4">
+            <div className="flex justify-center items-center px-4 my-10">
+                <div className="shadow form-container bg-gradient-to-r from-[#711DB0] to-[#ED0B5A] rounded-md p-4">
                     <h1 className="card__title uppercase text-center">নতুন একাউন্ট করুন</h1>
 
-                    <form onSubmit={handleUserData} className="form  space-y-3">
+                    <form onSubmit={handleUserData} className="form space-y-3">
                         <div className="input-group">
-                            <label >নাম দিন (বাংলায়) </label>
-                            <input type="text" name="userName" required placeholder="  " />
+                            <label>নাম দিন (বাংলায়)</label>
+                            <input
+                                type="text"
+                                name="userName"
+                                required
+                                placeholder="নাম লিখুন"
+                            />
                         </div>
                         <div className="input-group">
-                            <label >একাউন্ট নম্বর দিন (বাংলায়) </label>
-                            <input name="acc_no"  required placeholder="০০ ০০" type="text" />
+                            <label>একাউন্ট/ফোন নম্বর দিন (ইংরেজিতে)</label>
+                            <input
+                                name="acc_no"
+                                required
+                                placeholder="017 00 00 00 00"
+                                type="text"
+                            />
                         </div>
                         <div className="input-group">
-                            <label >ছবি দিন</label>
+                            <label>ছবি দিন</label>
                             <input name="img" required type="file" />
                         </div>
 
-                     
-                        <button type="submit" className="w-full border py-2 rounded bg-[#711DB0] hover:bg-[#ED0B5A] mt-4">
+                        <button
+                            type="submit"
+                            className="w-full border py-2 rounded bg-[#711DB0] hover:bg-[#ED0B5A] mt-4"
+                        >
                             খুলুন
                         </button>
                     </form>
 
-                    {errorMessage && <p className="error-message">{errorMessage}</p>}
+                    {errorMessage && (
+                        <p className="error-message text-red-500">{errorMessage}</p>
+                    )}
                 </div>
             </div>
         </div>

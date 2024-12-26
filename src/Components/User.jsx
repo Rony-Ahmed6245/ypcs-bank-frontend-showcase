@@ -57,7 +57,7 @@ const User = () => {
                         value={searchTerm}
                         onChange={handleInputChange}
                         className="w-full max-w-[280px] bg-white font-mono text-sm pl-2  rounded-l-lg toutline-0"
-                        placeholder="বাংলায় লিখুন সদস্য নম্বর..."
+                        placeholder="একাউন্ট/ফোন নম্বর দিন(ইংরেজি) "
                     />
                     <button onClick={handleSearch}
                         className=" bg-gradient-to-r from-[#711DB0] to-[#ED0B5A]   outline-none border-none px-4 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-gradient-to-r hover:from-[#ED0B5A] transform hover:to-[#711DB0] transition-colors z-0"><FiSearch /></button>

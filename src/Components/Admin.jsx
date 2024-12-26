@@ -26,7 +26,7 @@ const Admin = () => {
             // Perform login logic or check credentials here
             // For simplicity, let's assume a hardcoded username and password
             const validUsername = "";
-            const validPassword = "##################";
+            const validPassword = "";
 
             if (formData.email === validUsername && formData.password === validPassword) {
                 setLoggedIn(true);

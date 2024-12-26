@@ -4,19 +4,27 @@ const DpFrom = () => {
   const handleDepositData = async (e) => {
     e.preventDefault();
 
-    const acc_no = e.target.acc_no.value;
-    const amount = e.target.amount.value;
-    const pen_amount = e.target.pen_amount.value;
-    const exdate = formatDate1(e.target.exdate.value); // Format the expiration date
-    const date = formatDate(e.target.date.value); // Format the date
+    const acc_no = e.target.acc_no.value.trim();
+    const amount = e.target.amount.value.trim();
+    const pen_amount = e.target.pen_amount.value.trim();
+    const exdate = formatDate1(e.target.exdate.value); // Format expiration date
+    const date = formatDate(e.target.date.value); // Format deposit date
 
-    if (!validateBangla(acc_no)) {
-      Swal.fire("একাউন্ট নম্বর শুধুমাত্র বাংলায় লিখুন।");
+    // Validation: Account number (exactly 11 digits)
+    if (!validateAccountNumber(acc_no)) {
+      Swal.fire("একাউন্ট নম্বর অবশ্যই ১১ সংখ্যার হতে হবে এবং ইংরেজি সংখ্যায় লিখুন।");
       return;
     }
 
-    if (!validateEnglish(amount) || !validateEnglish(pen_amount)) {
-      Swal.fire("জমাকৃত টাকা এবং জরিমানা শুধুমাত্র ইংরেজিতে লিখুন।");
+    // Validation: Amount and Penalty (numeric only)
+    if (!validateNumeric(amount) || !validateNumeric(pen_amount)) {
+      Swal.fire("জমাকৃত টাকা এবং জরিমানা অবশ্যই ইংরেজি সংখ্যায় লিখুন।");
+      return;
+    }
+
+    // Validation: Dates
+    if (!exdate || !date) {
+      Swal.fire("মাস এবং জমার তারিখ অবশ্যই প্রদান করতে হবে।");
       return;
     }
 
@@ -33,25 +41,23 @@ const DpFrom = () => {
       });
 
       if (response.ok) {
-        Swal.fire("Amount Added Successfully!");
+        Swal.fire("টাকা সফলভাবে জমা হয়েছে!");
+        e.target.reset(); // Reset form after successful submission
+      } else {
+        const errorData = await response.json();
+        Swal.fire(errorData.message || "জমা করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
       }
     } catch (error) {
-      console.error("Error creating account:", error);
+      console.error("Error creating deposit record:", error);
+      Swal.fire("কিছু সমস্যা হয়েছে। দয়া করে পরে আবার চেষ্টা করুন।");
     }
-    e.target.reset();
   };
 
-  // Function to validate Bangla text
-  const validateBangla = (text) => {
-    const banglaRegex = /^[\u0980-\u09FF]+$/; // Regex for Bangla characters
-    return banglaRegex.test(text);
-  };
+  // Function to validate 11-digit account number
+  const validateAccountNumber = (text) => /^[0-9]{11}$/.test(text);
 
-  // Function to validate English text
-  const validateEnglish = (text) => {
-    const englishRegex = /^[0-9A-Za-z\s]+$/; // Regex for English letters and numbers
-    return englishRegex.test(text);
-  };
+  // Function to validate numeric values
+  const validateNumeric = (value) => /^[0-9]+$/.test(value);
 
   // Function to format date as dd/mm/yy
   const formatDate = (inputDate) => {
@@ -78,7 +84,7 @@ const DpFrom = () => {
     return `${day}th-${month}-${year}`;
   };
 
-  // Function to format date as mm/yy text
+  // Function to format date as mm/yy
   const formatDate1 = (inputDate) => {
     const monthNames = [
       "January",
@@ -109,8 +115,8 @@ const DpFrom = () => {
           <h1 className="card__title text-center uppercase">টাকা জমা করুন</h1>
           <form onSubmit={handleDepositData} className="card__form">
             <div className="input-group">
-              <label>একাউন্ট নম্বর (বাংলায়)</label>
-              <input name="acc_no" required placeholder="০০" type="text" />
+              <label>একাউন্ট/ফোন নম্বর (১১ সংখ্যার ইংরেজি)</label>
+              <input name="acc_no" required placeholder="017 00 00 00 00" type="text" />
             </div>
             <div className="flex gap-2 justify-center">
               <div className="input-group">
@@ -119,7 +125,7 @@ const DpFrom = () => {
               </div>
               <div className="input-group">
                 <label>জরিমানা (ইংরেজিতে)</label>
-                <input name="pen_amount" required placeholder="" defaultValue={0} type="text" />
+                <input name="pen_amount" required placeholder="0" defaultValue={0} type="number" />
               </div>
             </div>
             <div className="input-group">

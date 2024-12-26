@@ -69,7 +69,7 @@ const PaymentHistry = () => {
           placeholder="Search by Exact Account Number"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="border p-2 rounded w-full text-gray-700"
+          className="border p-2 rounded w-full text-white"
         />
       </div>
 
@@ -82,7 +82,7 @@ const PaymentHistry = () => {
               নং
             </th>
             <th className="text-white text-center shadow border uppercase">
-              একাউন্ট নম্বর
+              একাউন্ট/ফোন নম্বর
             </th>
             <th className="text-white text-center shadow border uppercase">
               জমাকৃত টাকা
