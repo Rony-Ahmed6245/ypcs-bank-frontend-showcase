@@ -44,8 +44,8 @@ const Admin = () => {
         <div className="flex justify-center items-center mt-28 px-2">
             <div className="max-w-7xl mx-auto">
                 {!isLoggedIn ? (
-                    <div className=" bg-gradient-to-r from-[#711DB0] to-[#ED0B5A] rounded-md p-7">
-                        <h4 className="title text-white uppercase text-center">Manager Login</h4>
+                    <div className=" rounded-md p-7">
+                        <h4 className="title uppercase text-[#4E70EC] text-center">Admin</h4>
                         <form onSubmit={handleSubmit}>
                             <div className="field">
                                 <svg className="input-icon" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +81,7 @@ const Admin = () => {
                                     onChange={handleInputChange}
                                 />
                             </div>
-                            <button className="w-full rounded-md mt-4 py-2 font-semibold uppercase bg-white text-black  outline-none border-none px-5" type="submit">
+                            <button className="w-full rounded-md mt-4 py-2 font-semibold uppercase bg-[#4E70EC] text-white  outline-none border-none px-5" type="submit">
                                 Login
                             </button>
                             {errorMessage && <p className="text-red-500">{errorMessage}</p>}

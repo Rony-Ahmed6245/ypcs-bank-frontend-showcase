@@ -69,7 +69,7 @@ const PaymentHistry = () => {
           placeholder="Search by Exact Account Number"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="border p-2 rounded w-full text-white"
+          className="border p-2 rounded w-full text-black"
         />
       </div>
 
@@ -77,7 +77,7 @@ const PaymentHistry = () => {
       <table className="table">
         {/* head */}
         <thead>
-          <tr className="bg-gradient-to-r from-[#711DB0] to-[#ED0B5A]">
+          <tr className="bg-[#4E70EC]">
             <th className="text-white text-center shadow border uppercase">
               নং
             </th>
@@ -114,7 +114,7 @@ const PaymentHistry = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="7" className="text-center text-gray-700 p-4">
+              <td colSpan="7" className="text-center text-black p-4">
                 No records found
               </td>
             </tr>

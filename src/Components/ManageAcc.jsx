@@ -58,11 +58,11 @@ const ManageAcc = () => {
             <table className="table ">
                 {/* head */}
                 <thead>
-                    <tr className="bg-gradient-to-r from-[#711DB0] to-[#ED0B5A]">
+                    <tr className="bg-[#4E70EC]">
                         <th className="text-white text-center shadow border uppercase">নং</th>
                         <th className="text-white text-center shadow border uppercase">ছবি</th>
                         <th className="text-white text-center shadow border uppercase">সদস্যের নাম</th>
-                        <th className="text-white text-center shadow border uppercase">একাউন্ট/ফোন নম্বর</th>
+                        <th className="text-white text-center shadow border uppercase">একাউন্ট নম্বর</th>
                         <th className="text-white text-center shadow border uppercase">ডিলিট</th>
                     </tr>
                 </thead>

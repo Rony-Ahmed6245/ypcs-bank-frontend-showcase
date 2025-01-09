@@ -6,7 +6,13 @@
 
 
 /* -------------------- */
+.castom-bg{
+  background-image: url('./assets/bg-babnk2.avif');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
+}
 
 /* ------------------ */
 .border1{
@@ -27,9 +33,10 @@
     align-items: center;
     justify-content: center;
     gap: .5em;
-    background-color: rgb(197, 197, 197);
+    background-color: ;
     border-radius: 4px;
     padding: .5em 1em;
+    border-bottom: 1px solid blue;
    }
    
    .input-icon {
@@ -43,7 +50,7 @@
     border: none;
     outline: none;
     width: 100%;
-    color: white;
+    color: black;
    }
    
    /*Text*/

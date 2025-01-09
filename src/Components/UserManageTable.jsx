@@ -34,7 +34,7 @@ const UserManageTable = ({ item, index, handleDelete }) => {
         }, 2000);
     };
     return (
-        <tr className="shadow text-gray-200 ">
+        <tr className="shadow text-black ">
             <td className="shadow border text-center">{index}</td>
             <td className="shadow border  ">
                 <Link to={`/user/${item.acc_no}`} className="flex justify-center items-center">

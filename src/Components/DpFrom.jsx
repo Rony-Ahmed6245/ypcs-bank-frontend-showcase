@@ -10,9 +10,9 @@ const DpFrom = () => {
     const exdate = formatDate1(e.target.exdate.value); // Format expiration date
     const date = formatDate(e.target.date.value); // Format deposit date
 
-    // Validation: Account number (exactly 11 digits)
+    // Validation: Account number (exactly 2 digits)
     if (!validateAccountNumber(acc_no)) {
-      Swal.fire("একাউন্ট নম্বর অবশ্যই ১১ সংখ্যার হতে হবে এবং ইংরেজি সংখ্যায় লিখুন।");
+      Swal.fire("একাউন্ট নম্বর অবশ্যই ২ সংখ্যার হতে হবে এবং ইংরেজি সংখ্যায় লিখুন।");
       return;
     }
 
@@ -53,8 +53,8 @@ const DpFrom = () => {
     }
   };
 
-  // Function to validate 11-digit account number
-  const validateAccountNumber = (text) => /^[0-9]{11}$/.test(text);
+  // Function to validate 2-digit account number
+  const validateAccountNumber = (text) => /^[0-9]{2}$/.test(text);
 
   // Function to validate numeric values
   const validateNumeric = (value) => /^[0-9]+$/.test(value);
@@ -111,32 +111,37 @@ const DpFrom = () => {
   return (
     <div>
       <div className="flex justify-center items-center my-20">
-        <div className="shadow bg-gradient-to-r from-[#711DB0] to-[#ED0B5A] rounded-md p-7">
-          <h1 className="card__title text-center uppercase">টাকা জমা করুন</h1>
-          <form onSubmit={handleDepositData} className="card__form">
-            <div className="input-group">
-              <label>একাউন্ট/ফোন নম্বর (১১ সংখ্যার ইংরেজি)</label>
-              <input name="acc_no" required placeholder="017 00 00 00 00" type="text" />
+        <div className="rounded-md p-7">
+          <h1 className="text-2xl font-bold mb-5 text-center uppercase">টাকা জমা করুন</h1>
+          <form onSubmit={handleDepositData} className="">
+            <div className="my-2">
+              <label>একাউন্ট নম্বর (২ সংখ্যার ইংরেজিতে)</label>
+              <input name="acc_no" required placeholder="00" type="text" 
+               className="field w-full shadow-sm"/>
             </div>
             <div className="flex gap-2 justify-center">
-              <div className="input-group">
-                <label>জমাকৃত টাকা (ইংরেজিতে)</label>
-                <input name="amount" required defaultValue={250} type="number" />
+              <div className="my-2">
+                <label>জমাকৃত টাকা </label>
+                <input name="amount" required defaultValue={250} type="number"
+                 className="field w-full shadow-sm" />
               </div>
-              <div className="input-group">
-                <label>জরিমানা (ইংরেজিতে)</label>
-                <input name="pen_amount" required placeholder="0" defaultValue={0} type="number" />
+              <div className="my-2">
+                <label>জরিমানা </label>
+                <input name="pen_amount" required placeholder="00" defaultValue={0} type="number" 
+                 className="field w-full shadow-sm"/>
               </div>
             </div>
-            <div className="input-group">
+            <div className="my-2">
               <label>মাস</label>
-              <input name="exdate" required type="date" id="" />
+              <input name="exdate" required type="date" id=""
+               className="field w-full shadow-sm" />
             </div>
-            <div className="input-group">
+            <div className="my-2">
               <label>জমার তারিখ</label>
-              <input name="date" required type="date" id="" />
+              <input name="date" required type="date" id="" 
+               className="field w-full shadow-sm"/>
             </div>
-            <button className="w-full text-white border py-2 rounded bg-[#711DB0] hover:bg-[#ED0B5A]">
+            <button className="w-full text-white border py-2 rounded bg-blue-600">
               জমা করুন
             </button>
           </form>

@@ -10,9 +10,9 @@ const AccountForm = () => {
         return banglaRegex.test(text);
     };
 
-    // Function to validate English input (11 digits for acc_no)
+    // Function to validate English input (2 digits for acc_no)
     const validateAccountNumber = (text) => {
-        const accountRegex = /^[0-9]{11}$/; // Exactly 11 digits
+        const accountRegex = /^[0-9]{2}$/; // Exactly 2 digits
         return accountRegex.test(text);
     };
 
@@ -40,7 +40,7 @@ const AccountForm = () => {
         }
 
         if (!validateAccountNumber(acc_no)) {
-            Swal.fire("একাউন্ট নম্বর অবশ্যই ১১ সংখ্যার হতে হবে এবং ইংরেজিতে লিখুন।");
+            Swal.fire("একাউন্ট নম্বর অবশ্যই ২ সংখ্যার হতে হবে এবং ইংরেজিতে লিখুন।");
             return;
         }
 
@@ -100,36 +100,41 @@ const AccountForm = () => {
     return (
         <div>
             <div className="flex justify-center items-center px-4 my-10">
-                <div className="shadow form-container bg-gradient-to-r from-[#711DB0] to-[#ED0B5A] rounded-md p-4">
-                    <h1 className="card__title uppercase text-center">নতুন একাউন্ট করুন</h1>
+                <div className=" text-black rounded-md p-4">
+                    <h1 className="text-2xl uppercase text-center mb-6">নতুন একাউন্ট করুন</h1>
 
-                    <form onSubmit={handleUserData} className="form space-y-3">
-                        <div className="input-group">
+                    <form onSubmit={handleUserData} className=" space-y-3">
+                        <div className="my-2">
                             <label>নাম দিন (বাংলায়)</label>
                             <input
                                 type="text"
                                 name="userName"
                                 required
                                 placeholder="নাম লিখুন"
+                                className="field w-full shadow-sm"
                             />
                         </div>
-                        <div className="input-group">
-                            <label>একাউন্ট/ফোন নম্বর দিন (ইংরেজিতে)</label>
+                        <div className="my-2">
+                            <label>একাউন্ট নম্বর দিন (ইংরেজিতে)</label>
                             <input
                                 name="acc_no"
                                 required
-                                placeholder="017 00 00 00 00"
+                                placeholder="00"
                                 type="text"
+                                 className="field w-full shadow-sm"
                             />
                         </div>
-                        <div className="input-group">
+                        <div className="">
                             <label>ছবি দিন</label>
-                            <input name="img" required type="file" />
+                            <input name="img" required type="file"
+                             className="field w-full shadow-sm"
+                            />
+                            
                         </div>
 
                         <button
                             type="submit"
-                            className="w-full border py-2 rounded bg-[#711DB0] hover:bg-[#ED0B5A] mt-4"
+                            className="w-full border py-2 rounded bg-blue-600 text-white mt-4"
                         >
                             খুলুন
                         </button>

@@ -12,6 +12,9 @@ import ErrorPage from "../Components/ErrorPage";
 import Guide from "../Components/Guide";
 import Banner from "../Components/Banner";
 import Dev from "../Components/Dev";
+import AllAccount from "../Components/AllAccount";
+import Privacy from "../Components/Privacy";
+import Me from "../Components/Me";
 
 
 const router = createBrowserRouter([
@@ -35,6 +38,18 @@ const router = createBrowserRouter([
             {
                 path:'/dev',
                 element:<Dev></Dev>
+            },
+            {
+                path:'/allAccount',
+                element:<AllAccount></AllAccount>
+            },
+            {
+                path:'/privacy',
+                element:<Privacy></Privacy>
+            },
+            {
+                path:'/me',
+                element:<Me></Me>
             },
             {
                 path:"/user/:acc_no",
