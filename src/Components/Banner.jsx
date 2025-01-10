@@ -27,14 +27,14 @@ const Banner = () => {
             {/* <Nav /> */}
             <div className="mt-10 flex justify-center items-center">
                 <div className="grid md:grid-cols-1 grid-cols-1 gap-4 ">
-                    <div className=" text-black rounded-sm text-center  field px-10 p-5 uppercase ]">
+                    <div className=" text-black font-semibold rounded-sm text-center  field px-10 p-5 uppercase ]">
                         <Link to="/user">আপনার একাউন্ট দেখুন</Link>
                     </div>
 
-                    <div className=" text-black  rounded-sm text-center  field px-10 p-5 uppercase "><Link to="/allAccount">সকল সদস্যবৃন্দ</Link></div>
-                    <div className=" text-black rounded-sm text-center  field px-10 p-5 uppercase "><Link to="/dev">পরিচিতি ও যোগাযোগ</Link></div>
+                    <div className=" text-black font-semibold  rounded-sm text-center  field px-10 p-5 uppercase "><Link to="/allAccount">সকল সদস্যবৃন্দ</Link></div>
+                    <div className=" text-black font-semibold rounded-sm text-center  field px-10 p-5 uppercase "><Link to="/dev">পরিচিতি ও যোগাযোগ</Link></div>
                   
-                    <div className=" text-black rounded-sm text-center field px-10 p-5 uppercase "><Link to="/privacy">বিধি ও নীতিমালা </Link></div>
+                    <div className=" text-black font-semibold rounded-sm text-center field px-10 p-5 uppercase "><Link to="/privacy">বিধি ও নীতিমালা </Link></div>
                 </div>
             </div>
 

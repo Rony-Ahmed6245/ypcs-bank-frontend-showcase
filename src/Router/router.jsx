@@ -74,6 +74,7 @@ const router = createBrowserRouter([
             {
                 path:'manageAcc',
                 element:<ManageAcc></ManageAcc>,
+                loader: ()=> fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
             },
             {
                 path:'pay',

@@ -29,7 +29,7 @@ function App() {
             <Link to="/"><RiHome2Line /></Link>
           </button>
           <button className="Border  text-white p-3 rounded text-xl  font-bold uppercase">
-            <Link to="/"><MdOutlineKeyboardDoubleArrowLeft /></Link>
+            <Link onClick={handleGoBack}><MdOutlineKeyboardDoubleArrowLeft /></Link>
           </button>
         </div>
       </div>
