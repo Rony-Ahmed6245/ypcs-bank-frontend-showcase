@@ -9,10 +9,11 @@ import { TiMail } from "react-icons/ti";
 
 
 
+
 const Dashboard2 = () => {
     return (
         <div>
-            <div className=" ">
+            <div className="">
                 <div className="grid grid-cols-2 md:grid-cols-6 bg-blue-600  max-w-5xl mx-auto gap-1 mt-0 py-4  mb-10">
                     <Link className="bg-[#ED0B5A] border shadow-md text-white py-1 md:px-4 px-2 rounded-md mx-1 font-semibold text-center  text-sm md:text-md hover:bg-red-600 transition-all  uppercase flex justify-center md:justify-center items-center gap-1" to={'/admin'}><CiLogout />Log out</Link>
                     <Link className="bg-white border shadow-md hover:text-white text-black py-1 md:px-4 px-2 rounded mx-1 font-semibold text-center text-sm md:text-md hover:bg-blue-600 transition-all uppercase flex justify-center items-center gap-1" to={'/dashboard/newAccount'}><MdAccountCircle />নতুন একাউন্ট খুলুন</Link>
@@ -22,7 +23,7 @@ const Dashboard2 = () => {
                     <Link className="bg-white border shadow-md hover:text-white text-black py-1 md:px-4 px-2 rounded mx-1 font-semibold text-center text-sm md:text-md hover:bg-blue-600 transition-all uppercase flex justify-center items-center gap-1" to={'/dashboard/guide'}><TiMail />গাইড</Link>
                 </div>
             </div>
-
+            
             <Outlet></Outlet>
         </div>
     );

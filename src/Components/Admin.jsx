@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Dashboard2 from "./Dashboard2";
+import AccountForm from "./AccountFrom";
 
 const Admin = () => {
     const [formData, setFormData] = useState({
@@ -25,8 +26,8 @@ const Admin = () => {
         if (isValid) {
             // Perform login logic or check credentials here
             // For simplicity, let's assume a hardcoded username and password
-            const validUsername = "";
-            const validPassword = "";
+            const validUsername = "ronyahmed6245@gmail.com";
+            const validPassword = "HellohellO";
 
             if (formData.email === validUsername && formData.password === validPassword) {
                 setLoggedIn(true);
@@ -88,7 +89,12 @@ const Admin = () => {
                         </form>
                     </div>
                 ) : (
-                    <Dashboard2 />
+                    <div>
+                        <div className="-mt-28 mx-auto ">
+                            <Dashboard2 />
+                        </div>
+                        <AccountForm />
+                    </div>
                 )}
             </div>
         </div>

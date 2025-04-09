@@ -7,32 +7,39 @@ const AllAccount = () => {
         fetch("https://bank-server-theta.vercel.app/v1/userBankAccounts")
             .then((res) => res.json())
             .then((data) => {
-                setUsers(data);
+                // Filter and sort by acc_no
+                const sortedUsers = data
+                    .filter(user => user.acc_no && !isNaN(user.acc_no))
+                    .sort((a, b) => Number(a.acc_no) - Number(b.acc_no));
+                
+                setUsers(sortedUsers); 
             });
     }, []);
 
-    console.log(users);
-
     return (
         <div>
-            <div>
-                <h1 className="text-center font-bold text-white py-2 top-0 bg-blue-600"> মোট সদস্য সংখ্যা: {users.length} জন।</h1>
-            </div>
+            <h1 className="text-center font-bold text-white py-2 bg-blue-600">
+                মোট সদস্য সংখ্যা: {users.length} জন।
+            </h1>
+
             <div className="mb-14">
-                {users?.map((item) => (
-                    <div className="py-3 px-2 max-w-[400px] mx-auto" key={item.id}>
-                        <div className="border  border-b-2 border-b-indigo-600 rounded  p-4 flex justify-between items-center">
-                            <div className="w-16 h-16 rounded-full bg-gray-200 flex-shrink-0">
+                {users.map((user, index) => (
+                    <div className="py-3 px-2 max-w-[400px] mx-auto" key={user.id || user.acc_no}>
+                        <div className="border border-indigo-600 rounded p-4 flex gap-4 items-center bg-white shadow-sm">
+                            <div className="w-20 h-20 rounded-full bg-gray-200 overflow-hidden">
                                 <img
-                                    className="w-16 max-h-16   rounded"
-                                    src={item.img}
-                                    alt="User Avatar"
+                                    className=" rounded-full "
+                                    src={user.img}
+                                    alt={user.user_name}
                                 />
                             </div>
-
-                            <div className="space-y-4">
-                                <h2 className="text-lg font-semibold text-gray-800">{item.user_name}</h2>
-                                <p className="text-sm text-gray-500">একাউন্ট নম্বর: {item.acc_no}</p>
+                            <div>
+                                <h2 className="text-lg font-bold text-gray-800">
+                                   {user.user_name}
+                                </h2>
+                                <p className=" text-gray-700 mt-2">
+                                    একাউন্ট নম্বর: <span className="text-xl rounded-full p-1 border font-bold text-green-600">{String(user.acc_no).padStart(2, '0')}</span>
+                                </p>
                             </div>
                         </div>
                     </div>

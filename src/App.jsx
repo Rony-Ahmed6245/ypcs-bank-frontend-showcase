@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="relative">
 
-      <div className="bg-[#5378FC] w-full  fixed bottom-0">
+      <div className="bg-gradient-to-r from-blue-500 to-red-500 w-full  fixed bottom-0">
         <div className="flex justify-around items-center">
         <button className="Border text-white p-3 rounded text-xl font-bold uppercase">
             <button className=" py-1 px-2 rounded-md" onClick={handleGoBack}><MdOutlineKeyboardDoubleArrowRight /></button>
@@ -29,7 +29,8 @@ function App() {
             <Link to="/"><RiHome2Line /></Link>
           </button>
           <button className="Border  text-white p-3 rounded text-xl  font-bold uppercase">
-            <Link onClick={handleGoBack}><MdOutlineKeyboardDoubleArrowLeft /></Link>
+           
+            <button className=" py-1 px-2 rounded-md" onClick={handleGoBack}><MdOutlineKeyboardDoubleArrowLeft /></button>
           </button>
         </div>
       </div>

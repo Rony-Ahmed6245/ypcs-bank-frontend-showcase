@@ -60,14 +60,9 @@ const User = () => {
                         placeholder="একাউন্ট নম্বর দিন "
                     />
                     <button onClick={handleSearch}
-                        className=" bg-[#5479FE] hover:bg-blue-900  outline-none border-none px-4 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold  transition-colors z-0"><FiSearch /></button>
+                        className=" bg-[#5479FE] hover:bg-blue-900  outline-none border-none px-8 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold  transition-colors z-0"><FiSearch /></button>
 
-                    <input
-                        type="button"
-                        value="রিসেট"
-                        onClick={resetSearch}
-                        className="bg-[#ED0B5A] outline-none border-none px-4 p-2 rounded-lg rounded-br-lg text-white font-mono text-sm  transition-colors ml-2 "
-                    />
+             
                 </div>
             </div>
 

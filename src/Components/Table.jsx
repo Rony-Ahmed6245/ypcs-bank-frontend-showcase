@@ -24,7 +24,7 @@ const Table = ({ item, index }) => {
                         <div className="text-right space-y-1">
                             <h2 className="text-sm font-semibold ">যুব অগ্রযাত্রা সমবায় সমিতি</h2>
                             <p className="text-xs ">সরদারপাড়া, ভাঙ্গুড়া-পাবনা।</p>
-                            <p className="text-xs ">ফোন: ০১৭০৯-১৩২৪৭৯</p>
+                         
                         </div>
                     </div>
 

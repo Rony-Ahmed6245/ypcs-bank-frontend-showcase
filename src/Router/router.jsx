@@ -15,6 +15,7 @@ import Dev from "../Components/Dev";
 import AllAccount from "../Components/AllAccount";
 import Privacy from "../Components/Privacy";
 import Me from "../Components/Me";
+import Fund from "../Components/Fund";
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
             {
                 path:'/me',
                 element:<Me></Me>
+            },
+            {
+                path:'/fund',
+                element:<Fund></Fund>,
+                loader: ()=> fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
             },
             {
                 path:"/user/:acc_no",

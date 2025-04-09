@@ -14,7 +14,12 @@ const ManageAcc = () => {
         fetch("https://bank-server-theta.vercel.app/v1/userBankAccounts")
             .then((res) => res.json())
             .then((data) => {
-                setUsers(data); // Set all users to state
+                const sortedUsers = data
+                    .filter(user => user.acc_no && !isNaN(user.acc_no))
+                    .sort((a, b) => Number(a.acc_no) - Number(b.acc_no));
+                
+                setUsers(sortedUsers); 
+            // Set all users to state
                 setFilteredUsers(data); // Initially show all users
             });
     }, []);
@@ -112,7 +117,7 @@ const ManageAcc = () => {
                         return (
                             <div
                                 key={item._id}
-                                className={` my-5 border p-4 mx-2 rounded  ${
+                                className={` my-3  mx-2 rounded  ${
                                     !isFiltered ? "bg-red-200 rounded " : 
                                     "" // Highlight non-matching accounts in red
                                 }`}
