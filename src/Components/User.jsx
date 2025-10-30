@@ -50,17 +50,17 @@ const User = () => {
     return (
         <div className="max-w-3xl mx-auto p-4">
           
-            <div className="rounded-lg bg-blue-200 p-5">
+            <div className="rounded-lg bg-red-200 p-5">
                 <div className="flex justify-center">
                     <input
                         type="text"
                         value={searchTerm}
                         onChange={handleInputChange}
-                        className="w-full max-w-[280px] bg-white font-mono text-sm pl-2  rounded-l-lg toutline-0"
+                        className="w-full max-w-[280px] text-[12px] bg-white font-mono  pl-2  rounded-l-lg "
                         placeholder="একাউন্ট নম্বর দিন "
                     />
                     <button onClick={handleSearch}
-                        className=" bg-[#5479FE] hover:bg-blue-900  outline-none border-none px-8 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold  transition-colors z-0"><FiSearch /></button>
+                        className=" bg-[#FA1C1E] hover:bg-blue-900  outline-none border-none px-8 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold  transition-colors z-0"><FiSearch /></button>
 
              
                 </div>

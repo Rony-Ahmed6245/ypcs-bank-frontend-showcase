@@ -1,7 +1,7 @@
 
 
 const Table = ({ item, index }) => {
-    console.log(item);
+    // console.log(item);
     return (
         <div>
             {/* <tr className=" shadow text-gray-200 border">
@@ -14,41 +14,45 @@ const Table = ({ item, index }) => {
 
             {/* --------------  */}
             <div className="flex justify-center items-center py-2 ">
-                <div className="bg-white shadow-xl rounded-lg w-full max-w-3xl  border border-gray-200">
+                <div className="bg-white shadow-xl rounded-lg w-full max-w-3xl  border border-[#FA1C1E]">
                     {/* Header Section */}
-                    <div className="flex justify-between text-white items-start border-b rounded-t-lg pb-2 p-4 mb-2 bg-[#3B56B9]">
+                    {/* <div className="flex justify-between text-white items-start border-b rounded-t-lg pb-2 p-4 mb-2 bg-[#3B56B9]">
                         <div className="space-y-1">
                             <h1 className="text-base font-bold text-white">ম্যানি রিসিভ</h1>
                             <p className="text-xs ">রিসিভ নং: 0000{index}</p>
                         </div>
                         <div className="text-right space-y-1">
-                            <h2 className="text-sm font-semibold ">যুব অগ্রযাত্রা সমবায় সমিতি</h2>
+                            <h2 className="text-[10px] font-semibold ">যুব অগ্রযাত্রা সমবায় সমিতি</h2>
                             <p className="text-xs ">সরদারপাড়া, ভাঙ্গুড়া-পাবনা।</p>
                          
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Receipt Details */}
+                     <div className="space-y-1 rounded-t-lg bg-[#FA1C1E]">
+                    
+                            <p className="py-2 text-[12px] text-center text-md text-white">রিসিভ নং: {index}</p>
+                        </div>
                     <div className="space-y-4 text-gray-600 mb-4 p-4">
                         <div className="flex justify-between items-center">
-                            <p className="text-sm ">একাউন্ট নম্বর:</p>
-                            <p className="text-sm  font-bold">{item.acc_no}</p>
+                            {/* <p className="text-[10px] ">একাউন্ট নম্বর:</p> */}
+                            {/* <p className="text-[10px]  font-bold">{item.acc_no}</p> */}
+                        </div>
+                        <div className="flex justify-between text-black items-center">
+                            <p className="text-[10px] ">মাস:</p>
+                            <p className="text-[15px] font-bold ">{item.exdate}</p>
                         </div>
                         <div className="flex justify-between items-center">
-                            <p className="text-sm ">মাস:</p>
-                            <p className="text-sm font-semibold ">{item.exdate}</p>
+                            <p className="text-[10px] ">টাকা জমাদানের তারিখ:</p>
+                            <p className="text-[10px] font-semibold ">{item.date}</p>
                         </div>
                         <div className="flex justify-between items-center">
-                            <p className="text-sm ">টাকা জমাদানের তারিখ:</p>
-                            <p className="text-sm font-semibold ">{item.date}</p>
+                            <p className="text-[10px] ">জমাকৃত টাকার পরিমাণ:</p>
+                            <p className="text-[10px] font-bold text-green-600">{item.amount} টাকা</p>
                         </div>
                         <div className="flex justify-between items-center">
-                            <p className="text-sm ">জমাকৃত টাকার পরিমাণ:</p>
-                            <p className="text-sm font-bold text-green-600">{item.amount} টাকা</p>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <p className="text-sm ">জরিমানা  টাকার পরিমাণ:</p>
-                            <p className="text-sm font-semibold text-red-600">{item.pen_amount} টাকা</p>
+                            <p className="text-[10px] ">জরিমানা  টাকার পরিমাণ:</p>
+                            <p className="text-[10px] font-semibold text-red-600">{item.pen_amount} টাকা</p>
                         </div>
                     </div>
 

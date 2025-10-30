@@ -16,24 +16,24 @@ const Fund = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
       {/* Summary Section */}
-      <div className="bg-gradient-to-r from-blue-500 to-blue-500 text-white rounded-lg shadow-md p-6 grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div className="bg-[#FA1C1E] text-white f rounded-lg shadow-md p-6 grid grid-cols-2 md:grid-cols-2 gap-6 mb-8">
         <div className="text-center md:text-left">
-          <p className="text-xl font-semibold">মোট ফান্ড:</p>
-          <p className="text-3xl font-bold">{totalAmount.toFixed(2)} টাকা</p>
+          <p className="text-[12px] font-semibold">Total Fund:</p>
+          <p className="text-xl font-bold">{totalAmount.toFixed(2)} TK</p>
         </div>
         <div className="text-center md:text-left">
-          <p className="text-xl font-semibold">মোট জরিমানা:</p>
-          <p className="text-3xl font-bold">{totalPenalty.toFixed(2)} টাকা</p>
+          <p className="text-[12px] font-semibold">Total Fine:</p>
+          <p className="text-xl font-bold">{totalPenalty.toFixed(2)}TK</p>
         </div>
       </div>
 
       {/* Table Section */}
-      <h2 className="text-2xl font-bold text-center mb-4">All Payment Transition</h2>
+      <h2 className="text-[10px] font-bold text-center mb-4">All Payment Transition</h2>
 
       {data.length > 0 ? (
-        <div className="overflow-x-auto rounded-lg shadow">
-          <table className="min-w-full border border-gray-300 text-sm text-center">
-            <thead className="bg-blue-600 text-white">
+        <div className="overflow-x-auto  rounded-lg ">
+          <table className="min-w-full border my-10 border-gray-300 text-[8px] text-center">
+            <thead className="bg-[#FA1C1E] text-white">
               <tr>
                 <th className="p-2 border">নং</th>
                 <th className="p-2 border">একাউন্ট নম্বর</th>

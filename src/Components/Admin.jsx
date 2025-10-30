@@ -46,7 +46,7 @@ const Admin = () => {
             <div className="max-w-7xl mx-auto">
                 {!isLoggedIn ? (
                     <div className=" rounded-md p-7">
-                        <h4 className="title uppercase text-[#4E70EC] text-center">Admin</h4>
+                        <h4 className=" uppercase text-[18px] text-black text-center">only Manager access</h4>
                         <form onSubmit={handleSubmit}>
                             <div className="field">
                                 <svg className="input-icon" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +82,7 @@ const Admin = () => {
                                     onChange={handleInputChange}
                                 />
                             </div>
-                            <button className="w-full rounded-md mt-4 py-2 font-semibold uppercase bg-[#4E70EC] text-white  outline-none border-none px-5" type="submit">
+                            <button className="w-full rounded-md text-[10px] mt-4 py-2 font-semibold uppercase bg-[#FA1C1E] text-white  outline-none border-none px-5" type="submit">
                                 Login
                             </button>
                             {errorMessage && <p className="text-red-500">{errorMessage}</p>}

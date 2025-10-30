@@ -3,9 +3,9 @@
 const Privacy = () => {
     return (
         <div>
-            <div className="text-justify p-4 mb-14">
+            <div className="text-justify text-[10px]  p-4 mb-14">
 
-                <h1 className="text-black text-2xl font-bold text-center py-2">বিধি ও নীতিমালা</h1>
+                <h1 className="text-black  text-center py-2">বিধি ও নীতিমালা</h1>
                 ১। সমিতির দ্বিতীয় মেয়াদের সময়কাল ৩ বছর (২০২৫-২০২৭ খ্রিষ্টাব্দ)। পরিকল্পিত মেয়াদ শেষ হওয়ার আগে কোনো
                 সদস্যকে তার সঞ্চয়কৃত অর্থ হস্তান্তর করা হবে না । 
                 <br /> (ক) মেয়াদ শেষ হওয়ার আগে কেউ সমিতি থেকে বিছিন্ন হলে তার ক্ষেত্রেও একই বিধান প্রযোজ্য হবে।

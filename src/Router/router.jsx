@@ -16,80 +16,88 @@ import AllAccount from "../Components/AllAccount";
 import Privacy from "../Components/Privacy";
 import Me from "../Components/Me";
 import Fund from "../Components/Fund";
+import OutDoor from "../Components/OutDoor";
+
 
 
 const router = createBrowserRouter([
     {
-        path:'/',
-        element:<App></App>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        path: '/',
+        element: <App></App>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'/',
-                element:<Banner></Banner>,
+                path: '/',
+                element: <Banner></Banner>,
             },
             {
-                path:'/user',
-                element:<User></User>,
+                path: '/outdoor',
+                element: <OutDoor></OutDoor>,
+                 loader: () => fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
             },
             {
-                path:'/admin',
-                element:<Admin></Admin>
+                path: '/user',
+                element: <User></User>,
             },
             {
-                path:'/dev',
-                element:<Dev></Dev>
+                path: '/admin',
+                element: <Admin></Admin>
             },
             {
-                path:'/allAccount',
-                element:<AllAccount></AllAccount>
+                path: '/dev',
+                element: <Dev></Dev>
             },
             {
-                path:'/privacy',
-                element:<Privacy></Privacy>
+                path: '/allAccount',
+                element: <AllAccount></AllAccount>
             },
             {
-                path:'/me',
-                element:<Me></Me>
+                path: '/privacy',
+                element: <Privacy></Privacy>
             },
             {
-                path:'/fund',
-                element:<Fund></Fund>,
-                loader: ()=> fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
+                path: '/me',
+                element: <Me></Me>
             },
             {
-                path:"/user/:acc_no",
-                element:<Account></Account>,
-                loader: ()=> fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
+                path: '/fund',
+                element: <Fund></Fund>,
+                loader: () => fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
+            },
+            {
+                path: "/user/:acc_no",
+                element: <Account></Account>,
+                loader: () => fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
             }
         ]
     },
     {
-        path:'dashboard',
-        element:<Dashboard2></Dashboard2>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        path: 'dashboard',
+        element: <Dashboard2></Dashboard2>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'newAccount',
-                element:<AccountFrom></AccountFrom>,
+                path: 'newAccount',
+                element: <AccountFrom></AccountFrom>,
+            },
+
+            {
+                path: 'dp',
+                element: <DpFrom></DpFrom>,
             },
             {
-                path:'dp',
-                element:<DpFrom></DpFrom>,
+                path: 'manageAcc',
+                element: <ManageAcc></ManageAcc>,
+                loader: () => fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
             },
             {
-                path:'manageAcc',
-                element:<ManageAcc></ManageAcc>,
-                loader: ()=> fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
+                path: 'pay',
+                element: <PaymentHistry></PaymentHistry>,
+                loader: () => fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
             },
             {
-                path:'pay',
-                element:<PaymentHistry></PaymentHistry>,
-                loader: ()=> fetch("https://bank-server-theta.vercel.app/v1/userAmounts")
-            },
-            {
-                path:'guide',
-                element:<Guide></Guide>
+                path: 'guide',
+                element: <Guide></Guide>
             }
         ]
     }

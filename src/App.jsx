@@ -17,18 +17,18 @@ function App() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative ">
 
-      <div className="bg-gradient-to-r from-blue-500 to-red-500 w-full  fixed bottom-0">
+      <div className="bg-[#FA1C1E] z-10  w-full  fixed bottom-0">
         <div className="flex justify-around items-center">
-        <button className="Border text-white p-3 rounded text-xl font-bold uppercase">
+        <button className="Border text-white rounded-full  p-3  text-xl font-bold uppercase">
             <button className=" py-1 px-2 rounded-md" onClick={handleGoBack}><MdOutlineKeyboardDoubleArrowRight /></button>
           </button>
          
-          <button className="Border bg-white text-black p-3 shadow-2xl rounded-full text-xl  font-bold uppercase">
+          <button className="Border  text-white p-3 shadow-2xl rounded-full text-xl  font-bold uppercase">
             <Link to="/"><RiHome2Line /></Link>
           </button>
-          <button className="Border  text-white p-3 rounded text-xl  font-bold uppercase">
+          <button className="Border  text-white   p-3 rounded-full text-xl  font-bold uppercase">
            
             <button className=" py-1 px-2 rounded-md" onClick={handleGoBack}><MdOutlineKeyboardDoubleArrowLeft /></button>
           </button>
