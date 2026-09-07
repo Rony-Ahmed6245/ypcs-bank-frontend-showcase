@@ -2,52 +2,52 @@ import { useEffect, useState } from "react";
 import UserManageTable from "./UserManageTable";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
+import { HiMagnifyingGlass, HiUserGroup } from "react-icons/hi2";
 
 const ManageAcc = () => {
-    const [users, setUsers] = useState([]); // State for all users
-    const [searchTerm, setSearchTerm] = useState(""); // State for search term
-    const [filteredUsers, setFilteredUsers] = useState([]); // State for filtered users
+    const [users, setUsers] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredUsers, setFilteredUsers] = useState([]);
 
-    const data = useLoaderData([]); // Fetch data using loader (possibly a list of transactions)
+    const data = useLoaderData() || [];
 
     useEffect(() => {
         fetch("https://bank-server-theta.vercel.app/v1/userBankAccounts")
             .then((res) => res.json())
             .then((data) => {
-                const sortedUsers = data
-                    .filter(user => user.acc_no && !isNaN(user.acc_no))
+                const sortedUsers = (data || [])
+                    .filter((user) => user.acc_no && !isNaN(user.acc_no))
                     .sort((a, b) => Number(a.acc_no) - Number(b.acc_no));
-                
-                setUsers(sortedUsers); 
-            // Set all users to state
-                setFilteredUsers(data); // Initially show all users
-            });
+
+                setUsers(sortedUsers);
+                setFilteredUsers(sortedUsers);
+            })
+            .catch((err) => console.error("Error fetching users:", err));
     }, []);
 
-    // Update filtered users based on the search term
+    // Update filtered users based on search term
     useEffect(() => {
-        if (searchTerm === "") {
-            // If no search term, show all users
+        if (searchTerm.trim() === "") {
             setFilteredUsers(users);
         } else {
-            // Filter users based on the search term (matching 'exdate' field)
-            const filterPay = data.filter((item) => item.exdate === searchTerm);
+            const filterPay = data.filter((item) => item.exdate === searchTerm.trim());
             const userFilter = users.filter((user) =>
                 filterPay.some((item) => item.acc_no === user.acc_no)
             );
             setFilteredUsers(userFilter);
         }
-    }, [searchTerm, users, data]); // This effect runs when searchTerm or users change
+    }, [searchTerm, users, data]);
 
     const handleDelete = async (accountId) => {
         Swal.fire({
-            title: "Are you sure?",
-            text: "User Bank Account delete",
+            title: "আপনি কি নিশ্চিত?",
+            text: "অ্যাকাউন্টটি ডিলিট করতে যাচ্ছেন!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, Delete Account!"
+            confirmButtonColor: "#dc2626",
+            cancelButtonColor: "#475569",
+            confirmButtonText: "হ্যাঁ, ডিলিট করুন",
+            cancelButtonText: "বাতিল",
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
@@ -66,9 +66,10 @@ const ManageAcc = () => {
                             prevFiltered.filter((user) => user._id !== accountId)
                         );
                         Swal.fire({
-                            title: "Deleted!",
-                            text: "User bank account has been deleted.",
+                            title: "ডিলিট হয়েছে!",
+                            text: "অ্যাকাউন্টটি সফলভাবে ডিলিট করা হয়েছে।",
                             icon: "success",
+                            confirmButtonColor: "#059669",
                         });
                     } else {
                         console.error(`Error deleting account with ID: ${accountId}`);
@@ -81,58 +82,65 @@ const ManageAcc = () => {
     };
 
     return (
-        <div className="overflow-x-auto max-w-5xl mx-auto my-5">
-            {/* Search Box */}
-            <div className="mb-4 flex items-center justify-between">
-               
-                <input
-                    type="text"
-                    id="searchBox"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="December-24)"
-                    className=" p-2 rounded shadow-sm w-full border-b-blue-700 border-2 mx-2"
-                />
+        <div className="max-w-5xl mx-auto p-4 sm:p-6 my-6 bg-slate-50 min-h-screen rounded-2xl shadow-sm border border-slate-200">
+            {/* Header Banner */}
+            <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 rounded-2xl shadow-md mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3 text-white">
+                    <div className="p-3 bg-indigo-800/50 rounded-xl border border-indigo-700/50">
+                        <HiUserGroup className="text-2xl text-indigo-300" />
+                    </div>
+                    <div>
+                        <h1 className="text-lg font-bold">একাউন্ট ব্যবস্থাপনা</h1>
+                        <p className="text-xs text-indigo-200">
+                            মোট সদস্য: {users.length} জন
+                        </p>
+                    </div>
+                </div>
+
+                {/* Search Box */}
+                <div className="relative w-full sm:w-72">
+                    <input
+                        type="text"
+                        id="searchBox"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        placeholder="মাস ও বছর দিয়ে সার্চ করুন (যেমন: December-24)"
+                        className="w-full pl-10 pr-4 py-2.5 bg-white/10 border border-indigo-700/60 rounded-xl text-xs text-white placeholder-indigo-300/70 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-slate-900 transition-all"
+                    />
+                    <HiMagnifyingGlass className="absolute left-3.5 top-3 text-indigo-300 text-sm" />
+                </div>
             </div>
 
-
-            {/* Table */}
-            <table className="table">
-                {/* Table Head */}
-                {/* <thead>
-                    <tr className="bg-[#4E70EC]">
-                        <th className="text-white text-center shadow border uppercase">নং</th>
-                        <th className="text-white text-center shadow border uppercase">ছবি</th>
-                        <th className="text-white text-center shadow border uppercase">সদস্যের নাম</th>
-                        <th className="text-white text-center shadow border uppercase">একাউন্ট নম্বর</th>
-                        <th className="text-white text-center shadow border uppercase">ডিলিট</th>
-                    </tr>
-                </thead> */}
-                <div className="my-2">
-                    {users.map((item, index) => {
-                        // Check if the account is part of the filtered users
+            {/* User List Cards */}
+            <div className="space-y-3">
+                {users.length > 0 ? (
+                    users.map((item, index) => {
                         const isFiltered = filteredUsers.some(
                             (user) => user.acc_no === item.acc_no
                         );
                         return (
                             <div
                                 key={item._id}
-                                className={` my-3  mx-2 rounded  ${
-                                    !isFiltered ? "bg-red-200 rounded " : 
-                                    "" // Highlight non-matching accounts in red
+                                className={`rounded-xl border transition-all duration-200 ${
+                                    isFiltered
+                                        ? "bg-white border-slate-200 hover:border-indigo-300 shadow-sm"
+                                        : "bg-rose-50/70 border-rose-200 opacity-75"
                                 }`}
                             >
                                 <UserManageTable
-                                    key={item._id}
                                     item={item}
                                     index={index + 1}
                                     handleDelete={handleDelete}
                                 />
                             </div>
                         );
-                    })}
-                </div>
-            </table>
+                    })
+                ) : (
+                    <div className="text-center py-12 bg-white rounded-2xl border border-slate-200 text-slate-400 text-xs font-semibold">
+                        কোনো একাউন্ট ডাটা পাওয়া যায়নি।
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

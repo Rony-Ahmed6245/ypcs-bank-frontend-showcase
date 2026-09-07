@@ -1,91 +1,94 @@
+import { FaPhone } from 'react-icons/fa6';
 
-
-
-import { FaPhone, FaSquarePhone } from 'react-icons/fa6';
-
-
-import img1 from "../assets/411089612_1016361566134727_6716276073552644705_n.jpg"
-import img2 from "../assets/184979780_958930997986797_2530290806202001357_n.jpg"
-import img3 from "../assets/torikul.jpg"
-
+import img1 from "../assets/411089612_1016361566134727_6716276073552644705_n.jpg";
+import img2 from "../assets/184979780_958930997986797_2530290806202001357_n.jpg";
+import img3 from "../assets/torikul.jpg";
 
 const Dev = () => {
+    const committeeMembers = [
+        {
+            id: 1,
+            name: "আশরাফুল ইসলাম",
+            role: "সভাপতি",
+            organization: "যুব অগ্রযাত্রা সমবায় সমিতি (YPCS)",
+            address: "সরদারপাড়া, ভাঙ্গুড়া, পাবনা।",
+            phone: "+8801776713610",
+            img: img1,
+        },
+        {
+            id: 2,
+            name: "তরিকুল ইসলাম তুহিন",
+            role: "সেক্রেটারি",
+            organization: "যুব অগ্রযাত্রা সমবায় সমিতি (YPCS)",
+            address: "সরদারপাড়া, ভাঙ্গুড়া, পাবনা।",
+            phone: "+8801709132479",
+            img: img3,
+        },
+        {
+            id: 3,
+            name: "বাবুল আক্তার আকিব",
+            role: "ক্যাশিয়ার",
+            organization: "যুব অগ্রযাত্রা সমবায় সমিতি (YPCS)",
+            address: "সরদারপাড়া, ভাঙ্গুড়া, পাবনা।",
+            phone: "+8801770159872",
+            img: img2,
+        },
+    ];
+
     return (
-        <div className="max-w-5xl mx-auto p-4 ">
+        <div className="max-w-6xl mx-auto p-4 sm:p-6 my-6 bg-slate-50 min-h-screen rounded-2xl shadow-sm border border-slate-200">
+            {/* Header Banner */}
+            <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 rounded-2xl shadow-md text-center mb-8">
+                <p className="text-xs uppercase tracking-widest text-indigo-300 font-semibold mb-1">
+                    পরিচালনা পর্ষদ
+                </p>
+                <h1 className="text-xl sm:text-2xl text-white font-extrabold tracking-wide">
+                    কমিটি সদস্যবৃন্দ
+                </h1>
+            </div>
 
-            {/* ---------------  */}
-            <div className="grid grid-cols-1   my-2 md:px-4 px-4 mb-20">
-                {/* 11111111111  */}
-                <div className="border border-[#FA1C1E]  rounded">
-                    <div className="p-4 ">
-                        <div>
-                            <figure className="w-full">
-                                <img className="  " src={img1} alt="" />
-                            </figure>
-                        </div>
-                        <div className="mt-3">
-                            <h2 className=" text-[18px] text-black font-bold text-center uppercase">আশরাফুল ইসলাম</h2>
-                            <h2 className="font-bold text-[10px] text-black  text-center mb-6">সভাপতি</h2>
-                            <h2 className="font-bold text-[10px] text-black  text-center mb-6">যুব অগ্রযাত্রা সমবায় সমিতি (YPCS) সরদারপাড়া, ভাঙ্গুড়া, পাবনা।</h2>
-                        </div>
-                    </div>
+            {/* Committee Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                {committeeMembers.map((member) => (
+                    <div
+                        key={member.id}
+                        className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between hover:shadow-md transition-all duration-200 group"
+                    >
+                        <div className="p-6 text-center flex-1">
+                            {/* Member Image */}
+                            <div className="w-28 h-28 mx-auto rounded-2xl bg-slate-100 overflow-hidden border-2 border-indigo-100 group-hover:border-indigo-300 transition-all shadow-sm mb-4">
+                                <img
+                                    className="w-full h-full object-cover"
+                                    src={member.img}
+                                    alt={member.name}
+                                />
+                            </div>
 
-                    <div >
-                        <a href="tel:+8801776713610" className="bg-[#FA1C1E] py-2 text-[20px] flex justify-center items-center text-white">
-                            <FaPhone />
-                        </a>
-                    </div>
-                </div>
-
-                {/* 222222222222222222222222  */}
-                <div className="border border-[#FA1C1E]  rounded">
-                    <div className="p-4 ">
-                        <div>
-                            <figure className="w-full">
-                                <img className="  " src={img3} alt="" />
-                            </figure>
-                        </div>
-                        <div className="mt-3">
-                            <h2 className=" text-[18px] text-black font-bold text-center uppercase">
-                                তরিকুল ইসলাম তুহিন
+                            {/* Info */}
+                            <h2 className="text-lg font-bold text-slate-800 uppercase tracking-tight">
+                                {member.name}
                             </h2>
-                            <h2 className="font-bold text-[10px] text-black  text-center mb-6">সেক্রেটারি</h2>
-                            <h2 className="font-bold text-[10px] text-black  text-center mb-6">যুব অগ্রযাত্রা সমবায় সমিতি (YPCS) সরদারপাড়া, ভাঙ্গুড়া, পাবনা।</h2>
+                            <span className="inline-block px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold rounded-full my-2">
+                                {member.role}
+                            </span>
+                            <p className="text-xs text-slate-600 font-medium leading-relaxed mt-1">
+                                {member.organization}
+                            </p>
+                            <p className="text-[11px] text-slate-400 font-medium">
+                                {member.address}
+                            </p>
                         </div>
-                    </div>
 
-                    <div >
-                        <a href="tel:+8801709132479" className="bg-[#FA1C1E] py-2 text-[20px] flex justify-center items-center text-white">
-                            <FaPhone />
+                        {/* Call Button */}
+                        <a
+                            href={`tel:${member.phone}`}
+                            className="bg-emerald-600 hover:bg-emerald-700 text-white py-3 flex justify-center items-center gap-2 font-bold text-sm tracking-wider uppercase transition-all duration-200"
+                        >
+                            <FaPhone className="text-base" />
+                            <span>কল করুন</span>
                         </a>
                     </div>
-                </div>
-
-                {/* 333333333333  */}
-                <div className="border border-[#FA1C1E]  rounded">
-                    <div className="p-4 ">
-                        <div>
-                            <figure className="w-full">
-                                <img className="  " src={img2} alt="" />
-                            </figure>
-                        </div>
-                        <div className="mt-3">
-                            <h2 className=" text-[18px] text-black font-bold text-center uppercase">
-                                বাবুল আক্তার আকিব
-                            </h2>
-                            <h2 className="font-bold text-[10px] text-black  text-center mb-6">ক্যাশিয়ার</h2>
-                            <h2 className="font-bold text-[10px] text-black  text-center mb-6">যুব অগ্রযাত্রা সমবায় সমিতি (YPCS) সরদারপাড়া, ভাঙ্গুড়া, পাবনা।</h2>
-                        </div>
-                    </div>
-
-                    <div >
-                        <a href="tel:+8801770159872" className="bg-[#FA1C1E] py-2 text-[20px] flex justify-center items-center text-white">
-                            <FaPhone />
-                        </a>
-                    </div>
-                </div>
-
-
+                ))}
             </div>
         </div>
     );
