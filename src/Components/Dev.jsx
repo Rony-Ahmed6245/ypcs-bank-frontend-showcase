@@ -8,7 +8,7 @@ const Dev = () => {
     const committeeMembers = [
         {
             id: 1,
-            name: "আশরাফুল ইসলাম",
+            name: "আশরাফুল ইসলাম (শিক্ষক)",
             role: "সভাপতি",
             organization: "যুব অগ্রযাত্রা সমবায় সমিতি (YPCS)",
             address: "সরদারপাড়া, ভাঙ্গুড়া, পাবনা।",
